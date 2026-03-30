@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Group 16 | Deltek TIP Midterm Presentation</title>
+    <meta
+      name="description"
+      content="Simple interactive midterm presentation for the Deltek TIP AI testing project."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="backdrop" aria-hidden="true"></div>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">GenAI Lab Midterm Presentation</p>
+        <h1>AI Automation for End-to-End Test Generation</h1>
+        <p class="hero-summary">
+          We want AI to help generate end-to-end tests for Deltek's TIP product, starting with the
+          Nonconformance submodule.
+        </p>
+        <div class="meta-row" aria-label="Project metadata">
+          <span class="meta-item">Group 16</span>
+          <span class="meta-item">Deltek</span>
+        </div>
+      </header>
+
+      <nav class="tab-nav" aria-label="Presentation tabs">
+        <button
+          class="tab-button is-active"
+          type="button"
+          data-tab-target="presentation"
+          aria-controls="presentation"
+          aria-selected="true"
+        >
+          Presentation
+        </button>
+        <button
+          class="tab-button"
+          type="button"
+          data-tab-target="demo"
+          aria-controls="demo"
+          aria-selected="false"
+        >
+          Illustrative Demo
+        </button>
+        <button
+          class="tab-button"
+          type="button"
+          data-tab-target="architecture"
+          aria-controls="architecture"
+          aria-selected="false"
+        >
+          System View
+        </button>
+      </nav>
+
+      <main class="panel-stack">
+        <section
+          class="content-panel is-active"
+          id="presentation"
+          data-panel
+          aria-label="Presentation"
+        >
+          <div class="panel-header">
+            <p class="panel-note">Use the arrow keys to move between slides.</p>
+          </div>
+
+          <div class="slide-shell">
+            <div class="slide-toolbar">
+              <div class="slide-counter" aria-live="polite">
+                <span data-slide-current>1</span>
+                <span class="counter-divider"></span>
+                <span>3</span>
+              </div>
+            </div>
+
+            <div class="slide-viewport">
+              <div class="slide-track" data-slide-track>
+                <article class="slide" aria-label="Problem slide">
+                  <div class="slide-main">
+                    <p class="slide-eyebrow">Slide 1</p>
+                    <h3>Problem</h3>
+                    <p class="slide-summary">
+                      Writing tests for TIP is still a manual process, and it
+                      takes a lot of product knowledge to do it well.
+                    </p>
+                    <ul class="point-list">
+                      <li>Each test has to match the UI, the code, and the internal test format.</li>
+                      <li>That makes test creation slow and hard to scale.</li>
+                      <li>Deltek proposed we start with a submodule of the TIP codebase (the Nonconformance module) and then generalize it to other modules.</li>
+                    </ul>
+                  </div>
+                  <aside class="slide-side">
+                    <div class="simple-card">
+                      <p class="card-label">In plain English</p>
+                      <p>
+                        We want AI to draft the tests, so that engineers don't have to
+                        come up with the tests from scratch.
+                      </p>
+                    </div>
+                  </aside>
+                </article>
+
+                <article class="slide" aria-label="Solution slide">
+                  <div class="slide-main">
+                    <p class="slide-eyebrow">Slide 2</p>
+                    <h3>Solution</h3>
+                    <p class="slide-summary">
+                      We are implementing an agentic workflow that grounds test
+                      generation in frontend, backend, database, object-store,
+                      framework, and system-test evidence.
+                    </p>
+                    <ul class="point-list">
+                      <li>An ingestion agent reads source materials and creates structured context files for each subsystem.</li>
+                      <li>An orchestrator agent uses those context files with a memory layer to plan comprehensive test coverage.</li>
+                      <li>Generation agents produce end-to-end tests by referencing the right context files and the relevant code paths.</li>
+                      <li>Happy-path descriptions and existing system-test examples are used as guardrails for quality and format.</li>
+                    </ul>
+                  </div>
+                </article>
+
+                <article class="slide" aria-label="Hurdle slide">
+                  <div class="slide-main">
+                    <p class="slide-eyebrow">Slide 3</p>
+                    <h3>Biggest Hurdle</h3>
+                    <p class="slide-summary">
+                      The biggest challenge is moving from a hardcoded
+                      workflow to a real multi-agent backend that
+                      works well in practice.
+                    </p>
+                    <ul class="point-list">
+                      <li>We need multiple agents that are well coordinated, not just one model doing everything.</li>
+                      <li>We also want the system to generate stronger tests, not only simple happy paths.</li>
+                      <li>That means producing edge cases and checks that actually challenge the product.</li>
+                    </ul>
+                  </div>
+                  <aside class="slide-side">
+                    <div class="simple-card">
+                      <p class="card-label">Key challenges</p>
+                      <div class="risk-row">
+                        <span class="risk-chip">Orchestration</span>
+                        <span class="risk-chip">Beyond happy path</span>
+                        <span class="risk-chip">Useful coverage</span>
+                      </div>
+                    </div>
+                  </aside>
+                </article>
+              </div>
+            </div>
+
+            <div class="slide-controls">
+              <button class="control-button" type="button" data-slide-dir="-1">
+                Previous
+              </button>
+              <div class="slide-dots" role="tablist" aria-label="Slide selectors">
+                <button
+                  class="dot-button is-active"
+                  type="button"
+                  data-slide-dot="0"
+                  aria-label="Go to slide 1"
+                ></button>
+                <button
+                  class="dot-button"
+                  type="button"
+                  data-slide-dot="1"
+                  aria-label="Go to slide 2"
+                ></button>
+                <button
+                  class="dot-button"
+                  type="button"
+                  data-slide-dot="2"
+                  aria-label="Go to slide 3"
+                ></button>
+              </div>
+              <button class="control-button" type="button" data-slide-dir="1">
+                Next
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="content-panel"
+          id="demo"
+          data-panel
+          hidden
+          aria-label="Illustrative Demo"
+        >
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Illustrative Demo</p>
+              <h2>Simple mockup</h2>
+            </div>
+            <p class="panel-note">Static example.</p>
+          </div>
+
+          <div class="demo-grid">
+            <article class="simple-card video-card">
+              <p class="card-label">Demo video</p>
+              <div class="video-frame" data-video-slot></div>
+            </article>
+
+            <article class="simple-card code-card">
+              <p class="card-label">Dummy output</p>
+              <pre class="code-block"><code>&lt;test&gt;
+  &lt;name&gt;NC.HP.0104_Add_Discrepancy_Line&lt;/name&gt;
+  &lt;steps&gt;
+    &lt;step&gt;NavigateToScreen&lt;/step&gt;
+    &lt;step&gt;Verify status = SPR&lt;/step&gt;
+    &lt;step&gt;Save and verify&lt;/step&gt;
+  &lt;/steps&gt;
+&lt;/test&gt;</code></pre>
+            </article>
+          </div>
+        </section>
+
+        <section
+          class="content-panel"
+          id="architecture"
+          data-panel
+          hidden
+          aria-label="System View"
+        >
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">System View</p>
+              <h2>Agentic AI test-generation architecture</h2>
+            </div>
+            <p class="panel-note">Technical flow from source ingestion to end-to-end test output.</p>
+          </div>
+
+          <div class="architecture-grid">
+            <article class="simple-card architecture-card">
+              <p class="card-label">System architecture</p>
+              <figure class="architecture-figure">
+                <img
+                  src="Final Diagram Mermaid.png"
+                  alt="System architecture diagram showing knowledge sources, context construction, planning and orchestration, test synthesis, and validation and outputs."
+                />
+              </figure>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

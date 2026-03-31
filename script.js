@@ -1,4 +1,4 @@
-const VIDEO_EMBED_URL = "https://www.youtube.com/watch?v=MdaPwfX56TQ";
+const VIDEO_EMBED_URL = "https://www.youtube.com/watch?v=HVm_r50J4Pw";
 
 const tabButtons = Array.from(document.querySelectorAll("[data-tab-target]"));
 const panels = Array.from(document.querySelectorAll("[data-panel]"));

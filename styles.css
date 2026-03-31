@@ -203,6 +203,22 @@ body {
   padding: 26px;
 }
 
+.solution-slide {
+  grid-template-columns: minmax(0, 1fr);
+  min-height: min(68vh, 720px);
+  align-items: stretch;
+}
+
+.solution-slide .slide-main {
+  display: grid;
+  align-content: center;
+  width: 100%;
+}
+
+.solution-slide .slide-summary {
+  max-width: none;
+}
+
 .slide h3 {
   font-size: clamp(2rem, 3.5vw, 2.9rem);
   line-height: 1;
